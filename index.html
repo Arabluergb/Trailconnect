@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrailConnect – MTB Web App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🚵 TrailConnect</h1>
+    <p>Deine MTB Web App für GPS-Tracking & Bike-Wartung</p>
+  </header>
+
+  <main>
+    <section id="gps">
+      <h2>📍 Live GPS-Tracking</h2>
+      <div id="map"></div>
+      <p id="coords">Standort wird geladen...</p>
+    </section>
+
+    <section id="garage">
+      <h2>🚲 Bike-Garage</h2>
+      <form id="bikeForm">
+        <input type="text" id="bikeName" placeholder="Name des Bikes" required />
+        <select id="bikeBrand">
+          <option value="">Marke wählen</option>
+          <option value="Trek">Trek</option>
+          <option value="Canyon">Canyon</option>
+          <option value="Cube">Cube</option>
+        </select>
+        <input type="text" id="bikeModel" placeholder="Modell (z. B. Strive CF)" required />
+        <button type="submit">Bike hinzufügen</button>
+      </form>
+      <ul id="bikeList"></ul>
+    </section>
+
+    <section id="maintenance">
+      <h2>🔧 Wartungsplan</h2>
+      <form id="serviceForm">
+        <input type="text" id="servicePart" placeholder="Teil (z. B. Kette)" required />
+        <input type="text" id="serviceInterval" placeholder="Intervall (z. B. 500 km)" required />
+        <button type="submit">Eintrag speichern</button>
+      </form>
+      <ul id="serviceList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© TrailConnect 2025</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
