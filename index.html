@@ -1,75 +1,24 @@
-
 <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrailConnect</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-</head>
-<body>
-  <header>
-    <h1>TrailConnect</h1>
-  </header>
-  <nav>
-    <button onclick="showSection('tracking')">GPS Tracking</button>
-    <button onclick="showSection('garage')">Garage</button>
-    <button onclick="showSection('service')">Wartung</button>
-  </nav>
-  <main>
-    <section id="tracking" class="active">
-      <h2>GPS Live Tracking</h2>
-      <p id="coords">Warte auf GPS-Daten...</p>
-      <p id="distance">Distanz: 0.00 km</p>
-      <div id="map"></div>
-    </section>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrailConnect - MTB Community & GPS Tracking</title>
+    <meta name="description" content="Die ultimative MTB-App für Touren, Bike-Verwaltung und Community. GPS-Tracking, Wartungsplaner und Trail-Sharing für Mountainbiker." />
+    <meta name="author" content="TrailConnect" />
 
-    <section id="garage">
-      <h2>Deine Bike-Garage</h2>
-      <form id="bikeForm">
-        <input name="bikeName" placeholder="Bike-Name" required />
-        <select name="bikeBrand" required>
-          <option value="">Marke wählen</option>
-          <option value="Specialized">Specialized</option>
-          <option value="Trek">Trek</option>
-          <option value="Cube">Cube</option>
-          <option value="Santa Cruz">Santa Cruz</option>
-          <option value="Giant">Giant</option>
-          <option value="Scott">Scott</option>
-        </select>
-        <input name="bikeModel" placeholder="Modell" required />
-        <button>Bike speichern</button>
-      </form>
-      <ul id="bikeList"></ul>
-    </section>
+    <meta property="og:title" content="TrailConnect - MTB Community & GPS Tracking" />
+    <meta property="og:description" content="Die ultimative MTB-App für Touren, Bike-Verwaltung und Community. GPS-Tracking, Wartungsplaner und Trail-Sharing für Mountainbiker." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <section id="service">
-      <h2>Wartungsübersicht</h2>
-      <form id="serviceForm">
-        <input name="servicePart" placeholder="Teil (z.B. Kette)" required />
-        <input name="serviceInterval" placeholder="Intervall (z.B. alle 500 km)" required />
-        <button>Wartung speichern</button>
-      </form>
-      <ul id="serviceList"></ul>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
 
-      <h3>Empfohlene Wartung</h3>
-      <select id="partSelector">
-        <option value="">Teil wählen</option>
-        <option value="kette">Kette</option>
-        <option value="bremsen">Bremsen</option>
-        <option value="dämpfer">Dämpfer</option>
-        <option value="gabel">Gabel</option>
-        <option value="reifen">Reifen</option>
-      </select>
-      <p id="recommendation"></p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 TrailConnect</p>
-  </footer>
-  <script src="app.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
