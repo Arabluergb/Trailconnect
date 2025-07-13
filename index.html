@@ -1,58 +1,75 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrailConnect – MTB Web App</title>
+  <title>TrailConnect</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
   <header>
-    <h1>🚵 TrailConnect</h1>
-    <p>Deine MTB Web App für GPS-Tracking & Bike-Wartung</p>
+    <h1>TrailConnect</h1>
   </header>
-
+  <nav>
+    <button onclick="showSection('tracking')">GPS Tracking</button>
+    <button onclick="showSection('garage')">Garage</button>
+    <button onclick="showSection('service')">Wartung</button>
+  </nav>
   <main>
-    <section id="gps">
-      <h2>📍 Live GPS-Tracking</h2>
+    <section id="tracking" class="active">
+      <h2>GPS Live Tracking</h2>
+      <p id="coords">Warte auf GPS-Daten...</p>
+      <p id="distance">Distanz: 0.00 km</p>
       <div id="map"></div>
-      <p id="coords">Standort wird geladen...</p>
     </section>
 
     <section id="garage">
-      <h2>🚲 Bike-Garage</h2>
+      <h2>Deine Bike-Garage</h2>
       <form id="bikeForm">
-        <input type="text" id="bikeName" placeholder="Name des Bikes" required />
-        <select id="bikeBrand">
+        <input name="bikeName" placeholder="Bike-Name" required />
+        <select name="bikeBrand" required>
           <option value="">Marke wählen</option>
+          <option value="Specialized">Specialized</option>
           <option value="Trek">Trek</option>
-          <option value="Canyon">Canyon</option>
           <option value="Cube">Cube</option>
+          <option value="Santa Cruz">Santa Cruz</option>
+          <option value="Giant">Giant</option>
+          <option value="Scott">Scott</option>
         </select>
-        <input type="text" id="bikeModel" placeholder="Modell (z. B. Strive CF)" required />
-        <button type="submit">Bike hinzufügen</button>
+        <input name="bikeModel" placeholder="Modell" required />
+        <button>Bike speichern</button>
       </form>
       <ul id="bikeList"></ul>
     </section>
 
-    <section id="maintenance">
-      <h2>🔧 Wartungsplan</h2>
+    <section id="service">
+      <h2>Wartungsübersicht</h2>
       <form id="serviceForm">
-        <input type="text" id="servicePart" placeholder="Teil (z. B. Kette)" required />
-        <input type="text" id="serviceInterval" placeholder="Intervall (z. B. 500 km)" required />
-        <button type="submit">Eintrag speichern</button>
+        <input name="servicePart" placeholder="Teil (z.B. Kette)" required />
+        <input name="serviceInterval" placeholder="Intervall (z.B. alle 500 km)" required />
+        <button>Wartung speichern</button>
       </form>
       <ul id="serviceList"></ul>
+
+      <h3>Empfohlene Wartung</h3>
+      <select id="partSelector">
+        <option value="">Teil wählen</option>
+        <option value="kette">Kette</option>
+        <option value="bremsen">Bremsen</option>
+        <option value="dämpfer">Dämpfer</option>
+        <option value="gabel">Gabel</option>
+        <option value="reifen">Reifen</option>
+      </select>
+      <p id="recommendation"></p>
     </section>
   </main>
-
   <footer>
-    <p>© TrailConnect 2025</p>
+    <p>&copy; 2025 TrailConnect</p>
   </footer>
-
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
